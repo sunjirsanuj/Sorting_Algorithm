@@ -22,16 +22,10 @@ int main(){
 
     int i=0, j=0, k=0;
     while(i<m and j<n){
-        if(A[i]<B[j]){
-            C[k]=A[i];
-            i++;
-            k++;
-        }
-        else {
-            C[k]=B[j];
-            j++;
-            k++;
-        }
+        C[k]=min(A[i], B[j]);
+        k++;
+        if(A[i]==min(A[i], B[j])) i++;
+        else j++;
     }
 
     while(i<m) {
