@@ -22,22 +22,12 @@ int main(){
 
     int i=0, j=0, k=0;
     while(i<m and j<n){
-        C[k]=min(A[i], B[j]);
-        k++;
+        C[k++]=min(A[i], B[j]);
         if(A[i]==min(A[i], B[j])) i++;
         else j++;
     }
-
-    while(i<m) {
-        C[k]=A[i];
-        k++;
-        i++;
-    }
-    while(j<n){
-        C[k]=B[j];
-        j++;
-        k++;
-    }
+    while(i<m) C[k++]=A[i++];
+    while(j<n) C[k++]=B[j++];
 
     cout<<endl<<"The final array: ";
     print(C, m+n);
