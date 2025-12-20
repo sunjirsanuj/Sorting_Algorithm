@@ -6,30 +6,13 @@ vector<int> A, B;
 void merg(int l, int mid, int h){
     int i=l, j=mid+1, k=l;
 
-
     while(i<=mid and j<=h){
-        if(A[i]<A[j]){
-            B[k]=A[i];
-            k++;
-            i++;
-        }
-        else {
-            B[k]=A[j];
-            k++;
-            j++;
-        }
+        B[k++]=min(A[i], A[j]);
+        if(A[i]==min(A[i], A[j])) i++;
+        else j++;
     }
-
-    while(i<=mid){
-        B[k]=A[i];
-        i++;
-        k++;
-    }
-    while(j<=h){
-        B[k]=A[j];
-        k++;
-        j++;
-    }
+    while(i<=mid) B[k++]=A[i++];
+    while(j<=h) B[k++]=A[j++];
 
     for (int i=l; i<k; i++) A[i]=B[i];
 }
